@@ -6,7 +6,8 @@ class Software
 	def play
 		Login.new.log
 		text = Text.new.text
-		TextManipulation.new.menu_operation(text)
+		choice = Menu.new.menu_operation(text)
+		Operation.new
 	end
 end
 
@@ -51,25 +52,30 @@ class Text
 	end
 end
 
-class TextManipulation
+class Menu
 
 	def menu_operation(text_input)
 		puts "Please insert what you wanna do"
 		choice = gets.to_i
 		case choice
 		when 1
-			word_count(text_input)
+			Operation.new.word_count(text_input)
 		when 2
-			letter_count(text_input)
+			Operation.new.letter_count(text_input)
 		when 3
-			reverse(text_input)
+			Operation.new.reverse(text_input)
 		when 4
-			uppercase(text_input)
+			Operation.new.uppercase(text_input)
 		when 5 
-			lowcase(text_input)
+			Operation.new.lowcase(text_input)
 		else puts "Please choose 1 to 5"
 		end
 	end
+
+end
+
+class Operation
+	attr_reader :word_count, :letter_count, :reverse, :uppercase, :lowcase
 
 	def word_count(text_input)
 		puts text_input.split(/\s+/).length
@@ -83,7 +89,7 @@ class TextManipulation
 	end
 
 	def uppercase(text_input)
-		puts text_input.uppercase
+		puts text_input.upcase
 	end
 
 	def lowcase(text_input)
