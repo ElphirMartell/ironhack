@@ -68,7 +68,7 @@ class Menu
 			Operation.new.uppercase(text_input)
 		when 5 
 			Operation.new.lowcase(text_input)
-		else puts "Please choose 1 to 5"
+		else puts "Please choose from 1 to 5"
 		end
 	end
 
