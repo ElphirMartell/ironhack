@@ -4,15 +4,14 @@ require "pry"
 
 class Software
 	def play
-		Login.new.log
-		text = Text.new.text
-		choice = Menu.new.menu_operation(text)
-		Operation.new
+		play = Login.new.log
 	end
 end
 
 
+
 class Login
+	attr_reader
 
 	def initialize
 		@user = "usuario"
@@ -38,11 +37,17 @@ class Login
 	def validate
 		if @user_input == @user && @password_input == @password
 		puts "You're in"
-		else puts "You shall not pass!!!"
+			text = Text.new.text
+			choice = Menu.new.menu_operation(text)
+			Operation.new
+
+		else puts "You shall not pass, please try again!!!"
+			Software.new.play
 		end
 	end
 
 end
+
 
 class Text
 	attr_reader :text_input
