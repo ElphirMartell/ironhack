@@ -78,7 +78,12 @@ class Operation
 	attr_reader :word_count, :letter_count, :reverse, :uppercase, :lowcase
 
 	def word_count(text_input)
-		puts text_input.split(/\s+/).length
+		puts text_input.split(/\s+/).length  
+=begin El (/\s+/) es una Regexp, o expresión regular (son muy útiles).
+Viene a significar que cada vez que en un string haya espacios (a diferencia de hacer un split(" ") 
+que solo tomaría un espacio) va a separar las palabras del string (en este caso por ser un split, 
+si fuera otro método haría otra cosa con estos espacios)
+=end
 	end
 	def letter_count(text_input)
 		puts text_input.length
