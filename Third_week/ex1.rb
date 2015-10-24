@@ -72,7 +72,7 @@ class Menu
 		when 4
 			Operation.new.uppercase(text_input)
 		when 5 
-			Operation.new.lowcase(text_input)
+			Operation.new.lowercase(text_input)
 		else puts "Please choose from 1 to 5"
 		end
 	end
@@ -102,8 +102,8 @@ si fuera otro método haría otra cosa con estos espacios)
 		puts text_input.upcase
 	end
 
-	def lowcase(text_input)
-		puts text_input.lowcase
+	def lowercase(text_input)
+		puts text_input.downcase
 	end
 
 end
