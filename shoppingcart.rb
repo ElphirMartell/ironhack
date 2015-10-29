@@ -7,10 +7,9 @@ class Item
         @price = price
     end
 
-     def apply_discount
+    def apply_discount
         @price
     end
-
 end
 
 class Houseware
@@ -26,8 +25,8 @@ class Fruit < Item
     end
 
     def apply_discount
-        if date == saturday || sunday
-            price * 0.1
+        if Time.now.saturday? == true || Time.now.sunday? == true
+            price * 0.9
         else
             price * 1
         end
@@ -48,7 +47,7 @@ class VacuumCleaner < Houseware
 
     def apply_discount
         if price >= 100
-        price * 0.05
+        price * 0.95
         end
     end
 end
