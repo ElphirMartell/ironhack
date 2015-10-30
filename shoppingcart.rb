@@ -86,6 +86,49 @@ class ShoppingCart
 
 end
 
+class Shop
+    attr_reader :items
+    def initialize
+        @fruit_stock = []
+        @rice_stock = []
+        @vacuumcleaner_stock = []
+        @anchovies_stock = []
+    end
+
+    def add_fruit(item)
+        @fruit_stock.push(item)
+    end
+
+    def add_rice(item)
+        @rice_stock.push(item)
+    end
+
+    def add_vacuum(item)
+        @vacuumcleaner_stock.push(item)
+    end
+
+    def add_anchovies(item)
+        @anchovies_stock.push(item)
+    end
+
+    def stock_panel
+        puts "There are #{@fruit_stock.size} units of orange juice and bananas in stock"
+        puts "There are #{@rice_stock.size} rice packets in stock"
+        puts "There are #{@vacuumcleaner_stock.size} vacuum cleaner units in stock"
+        puts "There are #{@anchovies_stock.size} units of anchovies in stock"
+    end
+
+end
+
+madrid = Shop.new
+5.times{madrid.add_fruit(Fruit.new)}
+12.times{madrid.add_fruit(Fruit.new)}
+20.times{madrid.add_rice(Rice.new)}
+5.times{madrid.add_vacuum(VacuumCleaner.new)}
+17.times{madrid.add_anchovies(Anchovies.new)}
+
+puts madrid.stock_panel
+
 my_cart = ShoppingCart.new
 5.times {my_cart.add_items(Fruit.new)}
 10.times {my_cart.add_items(Rice.new)}
