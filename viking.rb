@@ -13,18 +13,12 @@ class VikingTown
 	end
 
 	def call_to_arms
-		@town.map do |viking|
-			@army = (viking.age >= 15 || viking.age <=45)
+		@town.select do |viking|
+			@army = (viking.age >= 15) && (viking.age <=45)
+			binding.pry
 		end
 	end
 
-	def fight(fighter1 fighter2)
-		until (fighter1.health == 0) || (fighter2.health == 0) do
-			fighther1.health = fighter1.health - fighter2.set_attack_power
-			fighther2.health = fighter2.health - fighter1.set_attack_power
-		end
-		return "The winner is #{fighter.health != 0}"
-	end
 end
 
 
@@ -36,6 +30,14 @@ class Viking
 		@strength = strength
 		@age = age
 		@weapon = weapon
+	end
+
+	def self.fight(viking1, viking2)
+		until (viking1.health <= 0) || (viking2.health <= 0)
+			puts "#{viking1.name}'s life is #{viking1.health} and #{viking2.name}'s #{viking2.health}"
+			viking1.health -= viking2.strength; viking2.health -= viking1.strength
+		end
+		viking1.health > 0 ? "#{viking1.name} is the winner!!" : "#{viking2.name} is the winner!!"
 	end
 
 	def set_attack_power
@@ -56,11 +58,6 @@ class Viking
 end
 
 town = VikingTown.new("Kjorseyrr")
-
-yngvar = Viking.new("Yngvar", 20, 10, 34, "axe")
-hjalmar = Viking.new("Hjalmar", 30, 13, 25, "bow")
-town.fight(yngvar, hjalmar)
-
 town.add_vikings(Viking.new("Yngvar", 20, 10, 34, "axe"))
 town.add_vikings(Viking.new("Thorito", 99, 199, 13, "axe"))
 town.add_vikings(Viking.new("Ragnar", 15, 15, 29, "axe"))
