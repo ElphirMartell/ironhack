@@ -1,0 +1,54 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div id="heading">
+				<h1><a class="logo" href="/blog">My Sinatra Blog</a><small>Add post</small></h1>
+			</div>
+			<form action="/new_post" class="form-horizontal" method="post">
+				<div class="col-md-12">
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">Title:</span>
+							<input class="form-control" name ="title" id="title" type="text" placeholder="Enter a title" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">Date:</span>
+							<input class="form-control" name="date" id="date" type="date" placeholder="Select Date" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">Text:</span>
+							<textarea class="form-control" name="text" rows="10" id="text" placeholder="Write text" required></textarea>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">Author:</span>
+								<textarea class="form-control" name="author" rows="1" id="author" placeholder="Write author" required></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">Category:</span>
+								<textarea class="form-control" name="category" rows="1" id="category" placeholder="Write category" required></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div>
+							<button class="btn btn-primary" type="submit">Send</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<div class="clearfix"></div>
+</div>

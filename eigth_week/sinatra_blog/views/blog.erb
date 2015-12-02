@@ -1,0 +1,23 @@
+<div class="container-fluid">
+	<header class="row" id="heading">
+		<div class="col-md-8">
+			<h1>My first Sinatra blog</h1>
+		</div>
+		<div class="col-md-4">
+			<button class="btn btn-primary" onclick="location.href='/new_post'">Add Post</button>
+		</div>
+	</header>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="bloglist" id="accordion" aria-multiselectable="true">
+				 <ul class="list-group"><% @blog.each_with_index do |post, index| %>
+				  <li class="list-group-item"><a href="/detailed_page/<%= index %>"><%= post.title %></a>
+				  <% end %>
+				  </li>
+			     </ul>
+			</div>
+		</div>
+	</div>
+</div>
