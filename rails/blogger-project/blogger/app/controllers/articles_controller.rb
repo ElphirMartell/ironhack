@@ -8,6 +8,7 @@ include ArticlesHelper
 	def show
 		@article = Article.find(params[:id])
 		@comment = Comment.new
+		@tags = Tag.new
 	end
 
 	def new
