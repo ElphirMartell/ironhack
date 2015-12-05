@@ -6,6 +6,7 @@ class TagsController < ApplicationController
 
 	def create
 	  @tags = Tag.new(tag_params)
+	  @tags.article_id = params[:article_id]
 
 	  @tags.save
 
